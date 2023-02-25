@@ -45,7 +45,7 @@ main(){
 
 while getopts ":Xmx:Xms:Gamemode:" opt
 do
-    case ${opt} in
+    case "${opt}" in
         Xmx)
         Xmx=${OPTARG}
         ;;
