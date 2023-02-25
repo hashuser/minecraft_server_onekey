@@ -75,6 +75,11 @@ do
         ;;
 esac done
 
+echo ${Memoey_max}
+echo ${Memoey_min}
+echo ${Gmode}
+echo "-----0------"
+
 if [ ! ${Memoey_max} ]; then
   Memoey_max="1024"
 fi
