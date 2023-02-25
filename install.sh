@@ -57,6 +57,7 @@ do
         ;;
         *)
         echo "Exit"
+        echo "${opt}"
         exit 1
         ;;
 esac done
