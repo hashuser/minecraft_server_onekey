@@ -31,12 +31,15 @@ install_service(){
 }
 
 main(){
+  echo ${Memoey_max}
+  echo ${Memoey_min}
+  echo ${Gmode}
   mkdir $(cd "$(dirname "$0")";pwd)/Minecraft
   cd $(cd "$(dirname "$0")";pwd)/Minecraft
   wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
   apt search openjdk
   apt install openjdk-19-jdk-headless
-  java -Xmx${Xmx}M -Xms${Xms}M -jar server.jar nogui
+  java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar server.jar nogui
   echo "eula=true" > eula.txt
   sed -i 's/gamemode=servival/gamemode=${Gmode}/g' server.properties
   create_service
