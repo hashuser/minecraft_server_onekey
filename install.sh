@@ -43,16 +43,26 @@ main(){
   install_service
 }
 
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    '--Xmx')        set -- "$@" '-m'   ;;
+    '--Xms')        set -- "$@" '-s'   ;;
+    '--Gamemode')   set -- "$@" '-g'   ;;
+    *)              set -- "$@" "$arg" ;;
+  esac
+done
+
 while getopts ":Xmx:Xms:Gamemode:" opt
 do
     case "${opt}" in
-        Xmx)
+        m)
         Xmx=${OPTARG}
         ;;
-        Xms)
+        s)
         Xms=${OPTARG}
         ;;
-        Gamemode)
+        g)
         Gmode=${OPTARG}
         ;;
         *)
