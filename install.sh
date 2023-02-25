@@ -75,13 +75,13 @@ do
         ;;
 esac done
 
-if [ "${Memoey_max}" = "" ]; then
+if [ ! ${Memoey_max} ]; then
   Memoey_max="1024"
 fi
-if [ "${Memoey_min}" = "" ]; then
+if [ ! ${Memoey_min} ]; then
   Memoey_min="1024"
 fi
-if [ "${Gmode}" = "" ]; then
+if [ ! ${Gmode} ]; then
   Gmode="Servival"
 fi
 
