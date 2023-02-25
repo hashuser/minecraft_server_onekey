@@ -41,7 +41,7 @@ main(){
   apt install openjdk-19-jdk-headless
   java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui --initSettings
   echo "eula=true" > eula.txt
-  sed -i 's/gamemode=servival/gamemode=${Gmode}/g' server.properties
+  sed -i 's/gamemode=servival/gamemode=${Gmode}/g' $(cd "$(dirname "$0")";pwd)/server.properties
   create_service
   install_service
 }
