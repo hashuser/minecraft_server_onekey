@@ -85,4 +85,10 @@ if [ "${Gmode}" = "" ]; then
   Gmode="Servival"
 fi
 
+echo "-----1------"
+echo ${Memoey_max}
+echo ${Memoey_min}
+echo ${Gmode}
+echo "-----2------"
+
 main
