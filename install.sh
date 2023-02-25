@@ -60,7 +60,7 @@ done
 
 echo $@
 
-while getopts ":Xmx:Xms:Gamemode:" opt
+while getopts ":m:s:g:" opt
 do
     case "${opt}" in
         m)
