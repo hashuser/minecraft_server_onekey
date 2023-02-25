@@ -38,6 +38,8 @@ main(){
   apt install openjdk-19-jdk-headless
   java -Xmx512M -Xms512M -jar server.jar nogui
   echo "eula=true" > eula.txt
+  create_service
+  install_service
 }
 
 main
