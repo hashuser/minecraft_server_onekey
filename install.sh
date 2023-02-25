@@ -52,7 +52,7 @@ do
         Xms)
         Xms=${OPTARG}
         ;;
-        Gmode)
+        Gamemode)
         Gmode=${OPTARG}
         ;;
         *)
