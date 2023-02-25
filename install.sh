@@ -46,6 +46,8 @@ main(){
   install_service
 }
 
+echo $@
+
 for arg in "$@"; do
   shift
   case "$arg" in
@@ -55,6 +57,8 @@ for arg in "$@"; do
     *)              set -- "$@" "$arg" ;;
   esac
 done
+
+echo $@
 
 while getopts ":Xmx:Xms:Gamemode:" opt
 do
