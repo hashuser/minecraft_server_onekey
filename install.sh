@@ -56,6 +56,7 @@ do
         Gmode=${OPTARG}
         ;;
         *)
+        echo "Exit"
         exit 1
         ;;
 esac done
