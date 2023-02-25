@@ -13,7 +13,7 @@ create_service(){
   User=root
   Group=root
   WorkingDirectory=$(cd "$(dirname "$0")";pwd)
-  ExecStart=java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar nogui
+  ExecStart=java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui
   LimitNOFILE=1048575
   Restart=always
   TasksMax=infinity
@@ -39,11 +39,11 @@ main(){
   wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
   apt search openjdk
   apt install openjdk-19-jdk-headless
-  create_service
-  install_service
+  java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui --initSettings
   echo "eula=true" > eula.txt
   sed -i 's/gamemode=servival/gamemode=${Gmode}/g' server.properties
-  systemctl restart Minecraft.service
+  create_service
+  install_service
 }
 
 for arg in "$@"; do
