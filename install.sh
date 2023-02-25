@@ -76,10 +76,10 @@ do
 esac done
 
 if [ "${Memoey_max}" = "" ]; then
-  Xmx="1024"
+  Memoey_max="1024"
 fi
 if [ "${Memoey_min}" = "" ]; then
-  Xms="1024"
+  Memoey_min="1024"
 fi
 if [ "${Gmode}" = "" ]; then
   Gmode="Servival"
