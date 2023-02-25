@@ -41,13 +41,11 @@ main(){
   apt install openjdk-19-jdk-headless
   java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui --initSettings
   echo "eula=true" > $(cd "$(dirname "$0")";pwd)/eula.txt
-  sed -i 's/gamemode=servival/gamemode=${Gmode}/g' $(cd "$(dirname "$0")";pwd)/server.properties
+  sed -i 's/gamemode=survival/gamemode=${Gmode}/g' $(cd "$(dirname "$0")";pwd)/server.properties
   cat $(cd "$(dirname "$0")";pwd)/server.properties
   create_service
   install_service
 }
-
-echo $@
 
 for arg in "$@"; do
   shift
@@ -58,8 +56,6 @@ for arg in "$@"; do
     *)              set -- "$@" "$arg" ;;
   esac
 done
-
-echo $@
 
 while getopts ":m:s:g:" opt
 do
@@ -80,11 +76,6 @@ do
         ;;
 esac done
 
-echo ${Memoey_max}
-echo ${Memoey_min}
-echo ${Gmode}
-echo "-----0------"
-
 if [ ! ${Memoey_max} ]; then
   Memoey_max="1024"
 fi
@@ -94,11 +85,5 @@ fi
 if [ ! ${Gmode} ]; then
   Gmode="Servival"
 fi
-
-echo "-----1------"
-echo ${Memoey_max}
-echo ${Memoey_min}
-echo ${Gmode}
-echo "-----2------"
 
 main
