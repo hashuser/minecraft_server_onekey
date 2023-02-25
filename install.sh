@@ -13,7 +13,7 @@ create_service(){
   User=root
   Group=root
   WorkingDirectory=$(cd "$(dirname "$0")";pwd)
-  ExecStart=java -Xmx${Xmx}M -Xms${Xms}M -jar $(cd "$(dirname "$0")";pwd)/server.jar nogui
+  ExecStart=java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar nogui
   LimitNOFILE=1048575
   Restart=always
   TasksMax=infinity
@@ -57,10 +57,10 @@ while getopts ":Xmx:Xms:Gamemode:" opt
 do
     case "${opt}" in
         m)
-        Xmx=${OPTARG}
+        Memoey_max=${OPTARG}
         ;;
         s)
-        Xms=${OPTARG}
+        Memoey_min=${OPTARG}
         ;;
         g)
         Gmode=${OPTARG}
@@ -72,10 +72,10 @@ do
         ;;
 esac done
 
-if [ "${Xmx}" = "" ]; then
+if [ "${Memoey_max}" = "" ]; then
   Xmx="1024"
 fi
-if [ "${Xms}" = "" ]; then
+if [ "${Memoey_min}" = "" ]; then
   Xms="1024"
 fi
 if [ "${Gmode}" = "" ]; then
