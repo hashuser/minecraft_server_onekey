@@ -46,6 +46,10 @@ main(){
   cat $(cd "$(dirname "$0")";pwd)/server.properties
   create_service
   install_service
+  iptables -P INPUT ACCEPT
+  iptables -P OUTPUT ACCEPT
+  ip6tables -P INPUT ACCEPT
+  ip6tables -P OUTPUT ACCEPT
 }
 
 for arg in "$@"; do
