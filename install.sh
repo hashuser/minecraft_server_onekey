@@ -38,7 +38,7 @@ main(){
   cd $(cd "$(dirname "$0")";pwd)/Minecraft
   wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
   apt search openjdk
-  apt install openjdk-19-jdk-headless
+  apt install openjdk-19-jdk-headless -y
   java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui --initSettings
   echo "eula=true" > $(cd "$(dirname "$0")";pwd)/eula.txt
   sed -i "s/gamemode=survival/gamemode=${Gmode}/g" "$(cd "$(dirname "$0")";pwd)/server.properties"
