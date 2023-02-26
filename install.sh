@@ -42,6 +42,7 @@ main(){
   java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui --initSettings
   echo "eula=true" > $(cd "$(dirname "$0")";pwd)/eula.txt
   sed -i "s/gamemode=survival/gamemode=${Gmode}/g" "$(cd "$(dirname "$0")";pwd)/server.properties"
+  sed -i "s/max-players=20/max-players=${Mplayer}/g" "$(cd "$(dirname "$0")";pwd)/server.properties"
   cat $(cd "$(dirname "$0")";pwd)/server.properties
   create_service
   install_service
@@ -53,11 +54,12 @@ for arg in "$@"; do
     '--Xmx')        set -- "$@" '-m'   ;;
     '--Xms')        set -- "$@" '-s'   ;;
     '--Gamemode')   set -- "$@" '-g'   ;;
+    '--Maxplayer')  set -- "$@" '-p'   ;;
     *)              set -- "$@" "$arg" ;;
   esac
 done
 
-while getopts ":m:s:g:" opt
+while getopts ":m:s:g:p:" opt
 do
     case "${opt}" in
         m)
@@ -68,6 +70,9 @@ do
         ;;
         g)
         Gmode=${OPTARG}
+        ;;
+        p)
+        Mplayer=${OPTARG}
         ;;
         *)
         echo "Exit"
@@ -84,6 +89,9 @@ if [ ! ${Memoey_min} ]; then
 fi
 if [ ! ${Gmode} ]; then
   Gmode="Servival"
+fi
+if [ ! ${Mplayer} ]; then
+  Mplayer="20"
 fi
 
 main
