@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # 1.19.3 Java
 
