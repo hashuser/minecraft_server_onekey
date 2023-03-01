@@ -2,7 +2,7 @@
 ## Install
 >Java Version
 ```
-sudo curl -L https://raw.githubusercontent.com/hashuser/minecraft_server_onekey/master/install.sh | bash -s -- --Xmx 1024 --Xms 512 --Gamemode creative --Maxplayer 20 --Viewdistance 10
+sudo curl -L https://raw.githubusercontent.com/hashuser/minecraft_server_onekey/master/install_java.sh | bash -s -- --Xmx 1024 --Xms 512 --Gamemode creative --Maxplayer 20 --Viewdistance 10
 ```
 >Bedrock Version
 ```
