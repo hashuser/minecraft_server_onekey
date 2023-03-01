@@ -34,6 +34,8 @@ main(){
   echo ${Memoey_max}
   echo ${Memoey_min}
   echo ${Gmode}
+  echo ${Mplayer}
+  echo ${Vdistance}
   mkdir $(cd "$(dirname "$0")";pwd)/Minecraft
   cd $(cd "$(dirname "$0")";pwd)/Minecraft
   wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
@@ -43,6 +45,7 @@ main(){
   echo "eula=true" > $(cd "$(dirname "$0")";pwd)/eula.txt
   sed -i "s/gamemode=survival/gamemode=${Gmode}/g" "$(cd "$(dirname "$0")";pwd)/server.properties"
   sed -i "s/max-players=20/max-players=${Mplayer}/g" "$(cd "$(dirname "$0")";pwd)/server.properties"
+  sed -i "s/view-distance=10/view-distance=${Vdistance}/g" "$(cd "$(dirname "$0")";pwd)/server.properties"
   cat $(cd "$(dirname "$0")";pwd)/server.properties
   create_service
   install_service
@@ -55,15 +58,16 @@ main(){
 for arg in "$@"; do
   shift
   case "$arg" in
-    '--Xmx')        set -- "$@" '-m'   ;;
-    '--Xms')        set -- "$@" '-s'   ;;
-    '--Gamemode')   set -- "$@" '-g'   ;;
-    '--Maxplayer')  set -- "$@" '-p'   ;;
-    *)              set -- "$@" "$arg" ;;
+    '--Xmx')           set -- "$@" '-m'   ;;
+    '--Xms')           set -- "$@" '-s'   ;;
+    '--Gamemode')      set -- "$@" '-g'   ;;
+    '--Maxplayer')     set -- "$@" '-p'   ;;
+    '--Viewdistance')  set -- "$@" '-v'   ;;
+    *)                 set -- "$@" "$arg" ;;
   esac
 done
 
-while getopts ":m:s:g:p:" opt
+while getopts ":m:s:g:p:v:" opt
 do
     case "${opt}" in
         m)
@@ -77,6 +81,9 @@ do
         ;;
         p)
         Mplayer=${OPTARG}
+        ;;
+        v)
+        Vdistance=${OPTARG}
         ;;
         *)
         echo "Exit"
@@ -96,6 +103,9 @@ if [ ! ${Gmode} ]; then
 fi
 if [ ! ${Mplayer} ]; then
   Mplayer="20"
+fi
+if [ ! ${Vdistance} ]; then
+  Vdistance="10"
 fi
 
 main
