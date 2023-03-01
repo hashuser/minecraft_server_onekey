@@ -29,3 +29,8 @@ sudo curl -L https://raw.githubusercontent.com/hashuser/minecraft_server_onekey/
 CPU: >=2
 RAM: >=2G
 ```
+>Bedrock Version
+```
+CPU: >=1
+RAM: >=1G
+```
