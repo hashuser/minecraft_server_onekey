@@ -11,3 +11,8 @@ sudo curl -L https://raw.githubusercontent.com/hashuser/minecraft_server_onekey/
 --Gamemode: survival, creative, adventure
 --Viewdistance: Distance a player can see within the world
 ```
+## Recommand Environment
+```
+CPU: >=2
+RAM: >=2G
+```
