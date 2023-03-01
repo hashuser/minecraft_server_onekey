@@ -12,6 +12,7 @@ sudo curl -L https://raw.githubusercontent.com/hashuser/minecraft_server_onekey/
 --Viewdistance: Distance a player can see within the world
 ```
 ## Recommand Environment
+### Java Version
 ```
 CPU: >=2
 RAM: >=2G
