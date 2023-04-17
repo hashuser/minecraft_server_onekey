@@ -30,6 +30,7 @@ install_service(){
 }
 
 main(){
+  apt-get update
   echo ${Memoey_max}
   echo ${Memoey_min}
   echo ${Gmode}
