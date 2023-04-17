@@ -1,5 +1,5 @@
 #!/bin/bash
-# 1.19.3 Java
+# 1.19.4 Java
 
 create_service(){
   touch $(cd "$(dirname "$0")";pwd)/Minecraft.service
@@ -37,7 +37,7 @@ main(){
   echo ${Vdistance}
   mkdir $(cd "$(dirname "$0")";pwd)/Minecraft
   cd $(cd "$(dirname "$0")";pwd)/Minecraft
-  wget https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
+  wget https://piston-data.mojang.com/v1/objects/8f3112a1049751cc472ec13e397eade5336ca7ae/server.jar
   apt search openjdk
   apt install openjdk-19-jdk-headless -y
   java -Xmx${Memoey_max}M -Xms${Memoey_min}M -jar $(cd "$(dirname "$0")";pwd)/server.jar --nogui --initSettings
